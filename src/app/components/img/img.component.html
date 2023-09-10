@@ -1,0 +1,12 @@
+<div *ngIf="img; else nofound">
+  <!-- si img existe, entonces muestra la imagen, sino muestra el template nofound -->
+  <img [src]="img" (error)="imgError()" alt="aleatorio" />
+</div>
+<ng-template #nofound>
+  <img [src]="imgNoFound" alt="no found" />
+</ng-template>
+<h1>{{ img }}</h1>
+
+<!-- si queremos crear un evento para cuando la imagen este dañada podemos utilizar el evento (error)="imgerror()" -->
+
+<!-- Output -->
