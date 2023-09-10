@@ -1,10 +1,10 @@
-<p><input title="imagenPadre" type="text" [(ngModel)]="imagenPadre" /></p>
+<app-products></app-products>
 
-<app-img (loaded)="onloaded($event)" [img]="imagenPadre"> </app-img>
+<!-- estudiando Input y output -->
+
+<!-- <p><input title="imagenPadre" type="text" [(ngModel)]="imagenPadre" /></p>
+
+<app-img (loaded)="onloaded($event)" [img]="imagenPadre"> </app-img> -->
+
 <!-- Le estoy enviando al hijo ese string por medio de esa variable img que tiene el hijo con el decorador @Input() -->
 <!-- loaded es un objeto inicializado con eventemitter, cuando el objeto se ejecuta emite  y aquí recibe el evento  -->
-<app-product
-  [product]="product"
-  *ngFor="let product of productos"
-></app-product>
-<!-- primero estamos enviando el valor a [product] , este objeto esta en product.component.ts con lo que tenemos en la variable product de nuestro for que es la variable iteradora que nos esta recorriendo el array de productos de nuestro componente-->

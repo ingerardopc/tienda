@@ -1,0 +1,9 @@
+<h1>Products</h1>
+
+<div class="producs--grip">
+  <app-product
+    [product]="product"
+    *ngFor="let product of productos"
+  ></app-product>
+  <!-- primero estamos enviando el valor a [product] , este objeto esta en product.component.ts con lo que tenemos en la variable product de nuestro for que es la variable iteradora que nos esta recorriendo el array de productos de nuestro componente-->
+</div>
