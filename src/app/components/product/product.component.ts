@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -9,18 +9,26 @@ import { Product } from '../../models/product.model';
 export class ProductComponent {
   imagen: string = 'https://picsum.photos/200/200';
   @Input() product: Product = {
-    id: 1,
-    title: 'producto 1',
-    price: 12000,
-    description: 'este producto es muy bueno',
-    category: 'AAA',
-    image: 'https://picsum.photos/200/200',
+    id: 11,
+    title: 'producto 11',
+    price: 112000,
+    description: '11este producto es muy bueno',
+    category: '11AAA',
+    image: '11https://picsum.photos/200/200',
   };
+
+  @Output() addToCartClick = new EventEmitter<Product>();
 
   constructor() {}
 
   onloaded(img: string) {
     console.log('imagen cargada en el padre');
-    console.log(img); // imprimo el valor  que recibo del hijo en consola
+    console.log(img);
+    // imprimo el valor  que recibo del hijo en consola
+    // this.imagen = img;
+  }
+
+  onAddToCart() {
+    this.addToCartClick.emit(this.product);
   }
 }

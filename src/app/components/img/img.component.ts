@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./img.component.scss'],
 })
 export class ImgComponent {
-  @Input() img: string = ' '; //Input recibe el valor del padre
+  @Input() img: string = ''; //Input recibe el valor del padre
   @Output() loaded = new EventEmitter<string>(); // emite un evento al padre
   imgNoFound: string = '../../../assets/descarga.png'; // imagen por defecto
 

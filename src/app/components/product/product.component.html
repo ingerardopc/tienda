@@ -1,5 +1,7 @@
-<img [src]="imagen" alt="" />
+<app-img [img]="imagen"></app-img>
+<!-- <img [src]="imagen" alt="" /> -->
 <h2>{{ product.price }}</h2>
 <h3>{{ product.title | uppercase }}</h3>
 <p>{{ product.description }}</p>
 <p>{{ product.category }}</p>
+<button (click)="onAddToCart()">Add Cart</button>

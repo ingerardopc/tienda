@@ -1,0 +1,89 @@
+.show-mobile {
+  display: block;
+  box-shadow: 0px 2px 5px rgb(black, .2);
+  > div {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      border: 0;
+      background: transparent;
+    }
+  }
+  .side-menu{
+    position: fixed;  // para que se quede fijo
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:white;
+    // z-index: 100;
+    display: flex;  // para que se muestre en fila
+    flex-direction: column ;  // para que se muestre en columna
+    justify-content: flex-start;  // para que se muestre al inicio
+    transform: translateX(-100%); // para que se oculte
+    transition: all ease-out .5s; // para que se muestre con una transición
+    &.active {
+      transform: translateX(0); // para que se muestre
+    }
+
+  }
+}
+.hide-mobile {
+  display: none;
+  box-shadow: 0px 2px 5px rgb(black, .2);
+  > div {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    margin-right: 1em;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+      list-style: none;
+      a {
+        margin: 0 .2em;
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    .account {
+      margin-right: .5em;
+    }
+  }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}
+/* las primeras lineas es para movil, en la linea 50 espera que cambie al llegar al tamaño de tablet y en la linea 60 también ya que son los dos puntos que tenemos de cambios de pantalla   */
+
+
+/* fixed hace que un elemento se coloque respecto al viewport, Le dices dónde posicionarse al elemento, y se queda ahí mientras el usuario hace scroll. El elemento no conserva su espacio en el flujo, todo el espacio que tuviera reservado ese elemento desaparece. */

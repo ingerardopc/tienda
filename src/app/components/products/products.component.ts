@@ -7,7 +7,17 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
+  shoppingCart: Product[] = [];
+  total: number = 0;
   productos: Product[] = [
+    {
+      id: 1,
+      title: 'producto1',
+      price: 11000,
+      description: 'este producto es muy bueno',
+      category: 'AA',
+      image: 'https://picsum.photos/200/200',
+    },
     {
       id: 2,
       title: 'producto2',
@@ -41,4 +51,11 @@ export class ProductsComponent {
       image: 'https://picsum.photos/200/200',
     },
   ];
+  onAddToShoppingCart(product: Product) {
+    console.log('producto agregado');
+    console.log(product);
+    this.shoppingCart.push(product); //agrego el producto al carrito
+    //this.total+=product.price;//sumo el precio del producto al total
+    this.total = this.shoppingCart.reduce((acc, prod) => acc + prod.price, 0); //sumo el precio del producto al total
+  }
 }
