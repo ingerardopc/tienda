@@ -7,7 +7,7 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-  imagen: string = 'https://picsum.photos/200/200';
+  //imagen: string = 'https://picsum.photos/200/200';// imagen para local
   @Input() product: Product = {
     id: 11,
     title: 'producto 11',
@@ -25,7 +25,7 @@ export class ProductComponent {
     console.log('imagen cargada en el padre');
     console.log(img);
     // imprimo el valor  que recibo del hijo en consola
-    // this.imagen = img;
+    this.product.image = img;
   }
 
   onAddToCart() {

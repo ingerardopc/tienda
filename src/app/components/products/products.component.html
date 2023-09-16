@@ -1,5 +1,10 @@
-<p>La cantidad {{ shoppingCart.length }}</p>
-<p>El total es {{ total }}</p>
+<div appChangeColor>
+  <!-- directiva personalizada -->
+  <p>Fecha: {{ date | date : "dd/MM/yyyy" }}</p>
+  <!-- Pipe -->
+  <p>La cantidad {{ shoppingCart.length }}</p>
+  <p>El total es {{ total }}</p>
+</div>
 <div class="products--grid">
   <app-product
     [product]="product"
