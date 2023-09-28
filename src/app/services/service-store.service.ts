@@ -15,19 +15,19 @@ export class ServiceStoreService {
   constructor() {}
 
   getShoppingCart() {
-    //metodo para obtener el carrito
-    //metodo para obtener el carrito
+    //método para obtener el carrito
     return this.shoppingCart;
   }
 
   addProduct(product: Product) {
     //metodo para agregar un producto al carrito
     this.shoppingCart.push(product);
-    this.myCar.next(this.shoppingCart); //para que todo el que este subscrito reciba esta actualizacion rxjsP4
+    this.myCar.next(this.shoppingCart); //para que todo el que este subscrito reciba esta actualización rxjsP4
+    //en este caso en el navbar el contador de productos esta escuchando este cambio.
   }
 
   getTotal() {
-    //metodo para obtener el total del carrito, cuantos productos tiene
+    //método para obtener el total del carrito, cuantos productos tiene
     return this.shoppingCart.reduce((acc, prod) => acc + prod.price, 0);
   }
 }

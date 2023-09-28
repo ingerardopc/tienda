@@ -8,32 +8,66 @@ import { ProductsService } from 'src/app/services/products.service'; // importam
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
-  constructor(
-    private serviceStore: ServiceStoreService,
-    private productsService: ProductsService
-  ) {
-    this.shoppingCart = this.serviceStore.getShoppingCart(); //inyectamos el servicio
-  } //inyectamos el servicio
   shoppingCart: Product[] = [];
-  //migramos a service-store
-  total: number = 0;
-  date: Date = new Date();
-  productos: Product[] = []; //vamos a traer de products.service.ts que nos trae los productos de la api
+  products: Product[] = []; //para traer los productos de la api en una array
+  total: number = 0; //para sumar el total de los productos
+  date: Date = new Date(); //para mostrar la fecha de este momento
+  showProductDetail = false; //para mostrar el carrito de compras
+  productChosen: Product = {
+    id: '',
+    title: '',
+    price: 0,
+    description: '',
+    category: {
+      id: '0',
+      name: '',
+    },
+    images: [],
+  }; //para mostrar el detalle del producto
+
+  constructor(
+    private serviceStore: ServiceStoreService, //inyectamos el servicio.
+    private productsService: ProductsService //inyectamos el servicio.
+  ) {
+    this.shoppingCart = this.serviceStore.getShoppingCart(); //traemos el carrito de compras del servicio
+  }
+
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe((data) => {
-      this.productos = data;
+      //vamos a traer de products.service.ts que nos trae los productos de la api
+      this.products = data;
+      console.log('productos');
+      console.log(this.products);
     });
   }
+
   onAddToShoppingCart(product: Product) {
-    console.log('producto agregado');
-    //this.shoppingCart.push(product); //agrego el producto al carrito, este lo teniamos para local sin utilizar el servicio
+    console.log('producto agregado al carrito');
+    console.log(product);
+    //this.shoppingCart.push(product); //agrego el producto al carrito, este lo teníamos para local sin utilizar el servicio
     this.serviceStore.addProduct(product); //agrego el producto al carrito usando el servicio
     //this.total+=product.price;//sumo el precio del producto al total de una forma sencilla sin usar el servicio
     //this.total = this.shoppingCart.reduce((acc, prod) => acc + prod.price, 0); //sumo el precio del producto al total sin usar el servicio
     this.total = this.serviceStore.getTotal(); //sumo el precio del producto al total usando el servicio
   }
 
-  //como vamos a traer los productos desde una api y ano lo vamos a hacer en local
+  toggleProductDetail() {
+    //para mostrar el detalle del producto
+    this.showProductDetail = !this.showProductDetail;
+  }
+
+  onShowDetail(id: string) {
+    //para mostrar el detalle del producto a la derecha de la pantalla
+    console.log('mostrar detallessssss');
+    this.productsService.getProduct(id).subscribe((data) => {
+      //vamos a traer de products.service.ts de la api
+      console.log(data);
+      this.toggleProductDetail(); //desplegar el detalle del producto a la derecha de la pantalla
+      this.productChosen = data;
+    });
+  }
+
+  //como vamos a traer los productos desde una api y ya no lo vamos a hacer en local
   /* [
     {
       id: 1,

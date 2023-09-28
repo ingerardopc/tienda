@@ -1,9 +1,10 @@
-<app-img [img]="product.image"></app-img>// aqui estamos enviando el valor a
-[img] que es el valor que esta en el componente img.component.ts que es el valor
-que esta en nuestro componente en el array de productos en la propiedad image
+<app-img [img]="productF.images[0]"></app-img
+><!-- aquí estamos enviando el valor a [img] que es el valor que esta en el componente img.component.ts que es el valor que esta en nuestro componente en el array de productos en la propiedad image si es menor de 0 ->
+
 <!-- <img [src]="imagen" alt="" /> -->
-<h2>{{ product.price | currency : "COP" }}</h2>
-<h3>{{ product.title | uppercase }}</h3>
-<p>{{ product.description }}</p>
-<p>{{ product.category }}</p>
+<h2>{{ productF.price | currency : "COP" }}</h2>
+<h3>{{ productF.title | uppercase }}</h3>
+<p>{{ productF.description }}</p>
+<!-- <p>{{ product.category }}</p> -->
+<button (click)="onShowDetail()">Show Detail</button>
 <button (click)="onAddToCart()">Add Cart</button>
