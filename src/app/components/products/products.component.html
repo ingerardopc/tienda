@@ -21,15 +21,17 @@
 <!-- primero estamos enviando el valor a [product] , este objeto esta en product.component.ts con lo que tenemos en la variable product de nuestro for que es la variable iteradora que nos esta recorriendo el array de productos de nuestro componente-->
 
 <div class="product-detail" [class.active]="showProductDetail">
-  <div >
-    <swiper-container>
-      <swiper-slide *ngFor="let img of productChosen.images">
-        <img src="img" alt="" />
+  <div>
+    <!--? SWIPER  -->
+    <swiper-container >
+      <swiper-slide *ngFor="let img of imagenesMuestra"><!-- toco usar imagenesMuetra por que la api tiene la dirección de las imagenes mal -->
+        <img [src]="img" alt="imagen loca" />
       </swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
     </swiper-container>
+    
     <button (click)="toggleProductDetail()">Close</button>
+    <h1>{{ productChosen.images[0] }}</h1>
+    <!--? para ver si esta trayendo la ruta de la imagen -->
     <h1>{{ productChosen.title }}</h1>
     <p>{{ productChosen.description }}</p>
   </div>

@@ -14,6 +14,7 @@ register();
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
+  imagenesMuestra  = ['https://picsum.photos/300/300','https://picsum.photos/200/200','https://picsum.photos/400/200','https://picsum.photos/200/200','https://picsum.photos/600/200','https://picsum.photos/500/200'];//para mostrar las imagenes de muestra
   shoppingCart: Product[] = [];
   products: Product[] = []; //para traer los productos de la api en una array
   total: number = 0; //para sumar el total de los productos
@@ -42,7 +43,7 @@ export class ProductsComponent {
     this.productsService.getAllProducts().subscribe((data) => {
       //vamos a traer de products.service.ts que nos trae los productos de la api
       this.products = data;
-      console.log('productos');
+      console.log('productos cargados desde la api');
       console.log(this.products);
     });
   }

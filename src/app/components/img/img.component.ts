@@ -8,8 +8,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ImgComponent {
   @Input() img: string = ''; //Input recibe el valor del padre
   @Output() loaded = new EventEmitter<string>(); // emite un evento al padre
-  //imgNoFound: string = '../../../assets/descarga.png'; // imagen por defecto
-  imgNoFound: string = 'https://picsum.photos/200/200'; // imagen por defecto
+  imgNoFound: string = '../../../assets/descarga.png'; // imagen por defecto
+  errorImg: string = '../../../assets/images/default.png'; // imagen por defecto
 
   imgload() {
     console.log('imagen cargada');
@@ -17,6 +17,7 @@ export class ImgComponent {
   }
 
   imgError() {
-    this.img = this.imgNoFound;
+    console.log('imagen no encontrada');
+    this.img = this.errorImg;
   }
 }

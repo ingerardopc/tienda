@@ -18,9 +18,9 @@ export class ProductComponent {
       name: 'AA',
     },
     images: [
-      'https://picsum.photos/200/200',
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/300/200',
+      "https://picsum.photos/200/200",
+      "https://picsum.photos/200/300",
+      "https://picsum.photos/300/200",
     ],
   };
 
