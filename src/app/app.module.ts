@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';//importamos CUSTOM_ELEMENTS_SCHEMA para poder usar los elementos de Swiper
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,6 +29,6 @@ import { ChangeColorDirective } from './directives/highlight.directive';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],//usamos CUSTOM_ELEMENTS_SCHEMA para poder usar los elementos de Swiper
 })
 export class AppModule {}

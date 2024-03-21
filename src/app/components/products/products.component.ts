@@ -3,6 +3,11 @@ import { Product } from 'src/app/models/product.model';
 import { ServiceStoreService } from 'src/app/services/service-store.service'; // importamos nuestro servcio
 import { ProductsService } from 'src/app/services/products.service'; // importamos nuestro servcio para traer los productos de la api.
 
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
