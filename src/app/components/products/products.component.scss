@@ -16,12 +16,12 @@
   // z-index: 100;
   display: flex; // para que se muestre en fila
   flex-direction: column; // para que se muestre en columna
-  justify-content: flex-start; // para que se muestre al inicio
+  justify-content: center; // para que se muestre al inicio
   transform: translateX(100%); // para que se oculte
   transition: all ease-out .5s; // para que se muestre con una transición
 
   &.active {
-    transform: translateX(70%); // para que se muestre
+    transform: translateX(68%); // para que se muestre
   }
 }
 
@@ -46,17 +46,17 @@
 
 swiper-slide {
   img {
-    width: 200px;
-    height: 200px;
-    border-radius: 10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 20%;
   }
 }
 
-.carousel-inner img {
-  width: 100%;
-  max-height: 450px;
-}
+// .carousel-inner img {
+//   width: 100%;
+//   max-height: 450px;
+// }
 
-.carousel-inner {
-  height: 200px;
-}
+// .carousel-inner {
+//   height: 200px;
+// }

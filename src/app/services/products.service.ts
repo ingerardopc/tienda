@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product } from '../models/product.model'; //importamos el modulo para hacer peticiones http
+import { Product,CreateProductDTO } from '../models/product.model'; //importamos el modulo para hacer peticiones http
 @Injectable({
   providedIn: 'root',
 })
@@ -15,5 +15,11 @@ export class ProductsService {
   getProduct(id: string) {
     // par atraer 1 producto por id
     return this.http.get<Product>(`${this.urlApi}/${id}`);
+  }
+
+
+  //para crear un producto
+  createProduct(dto: CreateProductDTO) {
+    return this.http.post<Product>(this.urlApi, dto);
   }
 }

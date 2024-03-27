@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
+import { Product,CreateProductDTO } from 'src/app/models/product.model';
 import { ServiceStoreService } from 'src/app/services/service-store.service'; // importamos nuestro servcio
 import { ProductsService } from 'src/app/services/products.service'; // importamos nuestro servcio para traer los productos de la api.
 
@@ -71,6 +71,22 @@ export class ProductsComponent {
       console.log(data);
       this.toggleProductDetail(); //desplegar el detalle del producto a la derecha de la pantalla
       this.productChosen = data;
+    });
+  }
+
+  //para crear un producto
+  createNewProduct(){
+    const product: CreateProductDTO = {
+      title: 'producto nuevo',
+      price: 10000,
+      description: 'este producto es muy bueno',
+      categoryId: 1,
+      images: ['https://picsum.photos/200/200'],
+    };
+    this.productsService.createProduct(product).subscribe(data => {
+    /*  console.log('producto creado');
+      console.log(data); */
+      this.products.unshift(data);
     });
   }
 
